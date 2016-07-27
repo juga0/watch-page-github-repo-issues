@@ -35,7 +35,7 @@ STORE_URL = 'https://staging-store.openintegrity.org'
 STORE_CONFIG_DB = 'config'
 STORE_CONFIG_DOC = NAME_SEPARATOR.join([AGENT_NAME, AGENT_SUFFIX])
 STORE_CONFIG_URL = '/'.join([STORE_URL, STORE_CONFIG_DB, STORE_CONFIG_DOC])
-# STORE_CONFIG_URL = https://staging-store.openintegrity.org/config/github-repo-issues
+# STORE_CONFIG_URL = https://staging-store.openintegrity.org/config/page-github-repo-issues-juga
 
 STORE_DB = NAME_SEPARATOR.join([AGENT_TYPE, AGENT_NAME, AGENT_SUFFIX])
 STORE_DB_URL = '/'.join([STORE_URL, STORE_DB])
@@ -49,6 +49,14 @@ STORE_UPDATE_DOC = "_design" + STORE_DB + "_update/timestamped/%s"
 STORE_UPDATE_DOC_URL = '/'.join([STORE_DB_URL, STORE_UPDATE_DOC])
 # STORE_UPDATE_DOC_URL = "https://staging-store.openintegrity.org/github-repo-issues/_design/github-repo-issues/_update/timestamped/analyse-github-repo-issues-84.251.91.165-https-guardianproject.info-home-data-usage-and-protection-policies--etag"
 
+
+# fetch_github_repo_issues configuration
+# FIXME: temporal url for development
+# this will be overwritten by the config in the store
+FETCH_PAGE_DOMAIN = 'http://127.0.0.1:8001'
+FETCH_PAGE_NAME = 'fetchpagegithubrepoissues'
+FETCH_PAGE_URL = '/'.join([FETCH_PAGE_DOMAIN, FETCH_PAGE_NAME])
+
 AGENT_PAYLOAD = """{
     "key": "%(key)",
     "agent_ip": "%(agent_ip)",
@@ -61,14 +69,6 @@ AGENT_PAYLOAD = """{
     "keyword": "%(keyword)"
 }"""
 
-
-
-# fetch_github_repo_issues configuration
-# FIXME: temporal url for development
-# this will be overwroten by the config in the store
-FETCH_PAGE_DOMAIN = 'http://127.0.0.1:8001'
-FETCH_PAGE_NAME = 'fetchgithubrepoissues'
-FETCH_PAGE_URL = '/'.join([FETCH_PAGE_DOMAIN, FETCH_PAGE_NAME])
 
 # rabbitmq configuration
 AMQP_CONFIG = {'AMQP_URI': 'amqp://guest:guest@localhost'}

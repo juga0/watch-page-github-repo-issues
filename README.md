@@ -26,19 +26,28 @@ Check https://virtualenv.pypa.io/en/latest/installation.html or if Debian equal/
     source ~/.virtualenvs/oiienv/bin/activate
 
 #### Install dependencies in virtualenv
-    git clone https://lab.openintegrity.org/agents/watch-url.git
-    cd watch-url
+    git clone https://meta.openintegrity.org/agents/watch-page-github-repo-issues.git
+    cd watch-page-github-repo-issues
     pip install -r requirements.txt
 
 ## Configuration
 
-TBD
+To change the host/port in which this agent listen, modify `config.yml` or
+create the environment variables:
+    ```
+    WATCH_PAGE_HOST='watchhost'
+    WATCH_PAGE_PORT='watchport'
+    ```
+and run `set_ip_port.py`
+
+To change the host/port in which the fetch agent listen, modify `config.py` or
+create the following environment variables:
+    ```
+    FETCH_PAGE_HOST='fetchhost'
+    FETCH_PAGE_PORT='fetchport'
+    ```
 
 ## Running
 
     cd watch_page_github_repo_issues
     nameko run watch_page_github_repo_issues
-
-## Improvements
-
-Get new issues from /repos/:owner/:repo/issues/events or /repos/:owner/:repo/issues?
